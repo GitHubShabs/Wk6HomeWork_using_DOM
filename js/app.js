@@ -10,14 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
 const handleNewItemFormSubmit = function (event) {
   event.preventDefault();
 
-  const readingListItem = createReadingListItem(event.target);
+  const readingListItem = createFoodListItem(event.target);
   const readingList = document.querySelector('#reading-list');
   readingList.appendChild(readingListItem);
 
   event.target.reset();
 }
 
-const createReadingListItem = function (form) {
+
+const createFoodListItem = function (form) {
   const readingListItem = document.createElement('li');
   readingListItem.classList.add('reading-list-item');
 
@@ -29,10 +30,11 @@ const createReadingListItem = function (form) {
   author.textContent = form.author.value;
   readingListItem.appendChild(author);
 
-
   const category = document.createElement('p');
   category.textContent = form.category.value;
   readingListItem.appendChild(category);
+
+  
 
   return readingListItem;
 }
