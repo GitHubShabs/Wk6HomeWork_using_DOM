@@ -10,36 +10,37 @@ document.addEventListener('DOMContentLoaded', () => {
 const handleNewItemFormSubmit = function (event) {
   event.preventDefault();
 
-  const readingListItem = createFoodListItem(event.target);
-  const readingList = document.querySelector('#reading-list');
-  readingList.appendChild(readingListItem);
+  const foodListItem = createFoodListItem(event.target);
+  const foodList = document.querySelector('#food-list');
+  foodList.appendChild(foodListItem);
 
   event.target.reset();
 }
 
 
 const createFoodListItem = function (form) {
-  const readingListItem = document.createElement('li');
-  readingListItem.classList.add('reading-list-item');
+  const foodListItem = document.createElement('li');
+  foodListItem.classList.add('food-list-item');
 
-  const title = document.createElement('h2');
-  title.textContent = form.title.value;
-  readingListItem.appendChild(title);
+  const meal = document.createElement('h2');
+  meal.textContent = form.meal.value;
+  foodListItem.appendChild(meal);
 
-  const author = document.createElement('h3');
-  author.textContent = form.author.value;
-  readingListItem.appendChild(author);
+  const country = document.createElement('h3');
+  country.textContent = form.country.value;
+  foodListItem.appendChild(country);
 
   const category = document.createElement('p');
   category.textContent = form.category.value;
-  readingListItem.appendChild(category);
+  foodListItem.appendChild(category);
 
-  
 
-  return readingListItem;
+
+
+  return foodListItem;
 }
 
 const handleDeleteAllClick = function (event) {
-  const readingList = document.querySelector('#reading-list');
-  readingList.innerHTML = '';
+  const foodList = document.querySelector('#food-list');
+  foodList.innerHTML = '';
 }
